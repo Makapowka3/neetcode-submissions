@@ -1,0 +1,10 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        hashmap = Counter(magazine)
+        
+        for ch in ransomNote:
+            if hashmap[ch] == 0:
+                return False
+            hashmap[ch] -= 1
+        
+        return True
